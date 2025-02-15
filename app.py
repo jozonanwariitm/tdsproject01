@@ -16,6 +16,14 @@ app.add_middleware(
 def home():
     return {"message": "Vay TDS Tuesday is awesome."}
 
+@app.get("/read")
+def read_file(path: str):
+    try :
+        with open(path,"r") as f:
+            return f.read()
+    except Exception as e :
+        raise 
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
