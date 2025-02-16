@@ -279,7 +279,7 @@ if __name__ == "__main__":
     parser.add_argument("--root", default="/data")
     args = parser.parse_args()
     config["email"] = args.email
-    config["root"] = "/home/jozon/tds_project1/data"
+    config["root"] = os.path.abspath(args.root)
 
     os.makedirs(config["root"], exist_ok=True)
 
